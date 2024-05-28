@@ -1,0 +1,50 @@
+import java.sql.*;
+
+public class FetchEmployeeRecords {
+    // JDBC URL for MS Access database
+    static final String JDBC_URL = "jdbc:ucanaccess://path_to_your_database.accdb";
+
+    public static void main(String[] args) {
+        try {
+            // Establishing a connection to the database
+            Connection connection = DriverManager.getConnection(JDBC_URL);
+
+            // Creating a SQL statement
+            Statement statement = connection.createStatement();
+
+            // SQL query to fetch employee records
+            String sqlQuery = "SELECT * FROM Employee";
+
+            // Executing the query
+            ResultSet resultSet = statement.executeQuery(sqlQuery);
+
+            // Displaying the employee records
+            while (resultSet.next()) {
+                int employeeID = resultSet.getInt("EmployeeID");
+                String name = resultSet.getString("Name");
+                Date dob = resultSet.getDate("DOB");
+                String address = resultSet.getString("Address");
+                String department = resultSet.getString("Department");
+                Date doj = resultSet.getDate("DOJ");
+                String position = resultSet.getString("Position");
+
+                // Displaying the employee information
+                System.out.println("Employee ID: " + employeeID);
+                System.out.println("Name: " + name);
+                System.out.println("Date of Birth: " + dob);
+                System.out.println("Address: " + address);
+                System.out.println("Department: " + department);
+                System.out.println("Date of Joining: " + doj);
+                System.out.println("Position: " + position);
+                System.out.println("-----------------------------");
+            }
+
+            // Closing the resources
+            resultSet.close();
+            statement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Auto Refresh Page</title>
+    <!-- Set the page to refresh every 5 seconds -->
+    <meta http-equiv="refresh" content="5">
+</head>
+<body>
+
+<h2>Auto Refreshing Page</h2>
+<p>The page will refresh automatically every 5 seconds.</p>
+
+<%
+    // Get the current date and time
+    java.util.Date currentDate = new java.util.Date();
+%>
+<p>Current Date and Time: <%= currentDate.toString() %></p>
+
+</body>
+</html>

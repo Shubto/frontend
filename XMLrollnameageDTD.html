@@ -1,0 +1,57 @@
+<!ELEMENT student_profile (rollNo, name, age, semester, email, phoneNumber, department)> 
+<!ELEMENT rollNo (#PCDATA)> 
+<!ELEMENT name (#PCDATA)> 
+<!ELEMENT age (#PCDATA)> 
+<!ELEMENT semester (#PCDATA)> 
+<!ELEMENT email (#PCDATA)> 
+<!ELEMENT phoneNumber (#PCDATA)> 
+<!ELEMENT department (#PCDATA)> 
+<!DOCTYPE student_profile SYSTEM> 
+<student_profile> 
+<rollNo>00716404523</rollNo> 
+<name>Shubham Yadav</name> 
+<age>22</age> 
+<semester>2</semester> 
+<email>shub79908@gmail.com</email> 
+<phoneNumber>9205537706</phoneNumber> 
+<department>MCA</department> 
+</student_profile> 
+
+
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE studentProfile SYSTEM "student_profile.dtd">
+<studentProfile>
+    <student>
+        <rollNo>101</rollNo>
+        <name>John Doe</name>
+        <age>21</age>
+        <semester>4</semester>
+        <email>john.doe@example.com</email>
+        <phone>123-456-7890</phone>
+        <department>Computer Science</department>
+    </student>
+    <student>
+        <rollNo>102</rollNo>
+        <name>Jane Smith</name>
+        <age>22</age>
+        <semester>6</semester>
+        <email>jane.smith@example.com</email>
+        <phone>987-654-3210</phone>
+        <department>Electrical Engineering</department>
+    </student>
+</studentProfile>
+
+
+//DTD FILE
+
+<!ELEMENT studentProfile (student+)>
+<!ELEMENT student (rollNo, name, age, semester, email, phone, department)>
+<!ELEMENT rollNo (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT age (#PCDATA)>
+<!ELEMENT semester (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT phone (#PCDATA)>
+<!ELEMENT department (#PCDATA)>
